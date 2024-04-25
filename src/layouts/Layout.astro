@@ -15,9 +15,10 @@ interface Props {
 	title: string;
 	banner: string;
 	description?: string;
+	socialContentImage?: string;
 }
 
-let { title, banner, description } = Astro.props;
+let { title, banner, description, socialContentImage } = Astro.props;
 
 const isHomePage = pathsEqual(Astro.url.pathname, '/');
 
@@ -82,6 +83,7 @@ const favicons: Favicon[] = siteConfig.favicon.length > 0 ? siteConfig.favicon :
 		<meta property="og:url" content={Astro.url}>
 		<meta property="og:title" content={pageTitle}>
 		<meta property="og:description" content={description || pageTitle}>
+		{ siteConfig.socialContentImage.enable ? <meta property="og:image" content={`${Astro.site}${siteConfig.socialContentImage.src}`} /> : ""}
 
 		<meta name="twitter:card" content="summary_large_image">
 		<meta property="twitter:url" content={Astro.url}>

@@ -10,6 +10,11 @@ export type SiteConfig = {
     src: string
   }
 
+  socialContentImage: {
+    enable: boolean
+    src: string
+  }
+
   favicon: Favicon[]
 }
 
